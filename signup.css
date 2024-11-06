@@ -1,0 +1,96 @@
+.row {
+  width: 90%;
+}
+
+body {
+  background-image: url("Icons/enchanted-forest-of-glittering-spirits-1235941983097458758\ \(1\).jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Rubik, sans-serif;
+}
+
+.blurry-background {
+  backdrop-filter: blur(10px); /* Applies blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  padding: 20px;
+  border-radius: 8px; /* Optional: add rounded corners */
+  border: 1px solid rgba(173, 216, 230, 0.5);
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+}
+
+.custom-label {
+  color: white; /* Change to your desired color */
+  opacity: 1; /* Optional: ensures full opacity */
+}
+
+.custom-label:focus {
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"] {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #e0e0e0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus {
+  border-color: white;
+  outline: none;
+  outline: none;
+  box-shadow: 0 0 5px rgb(175, 93, 207), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus + .custom-label,
+input[type="password"]:focus + .custom-label,
+input[type="tel"]:focus + .custom-label,
+input[type="text"]:not(:placeholder-shown) + .custom-label,
+input[type="password"]:not(:placeholder-shown) + .custom-label,
+input[type="tel"]:not(:placeholder-shown) + .custom-label {
+  color: white; /* Change label color when input is focused */
+  background-color: transparent;
+}
+
+
+
+.form-floating > input + .custom-label:after {
+  background: transparent !important;
+}
+
+.form-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease-in-out;
+  padding: 10px 15px;
+}
+
+.form-button:hover {
+  background-color: #547cb4;
+  border: 1px solid white;
+}
+
+form a {
+  color: white;
+  padding: 10px;
+}
+
+#mobile_code {
+  height: 56px;
+  width: 100%;
+  padding-right: 12px;
+}
+
+#mobile_code::placeholder {
+  color: white;
+}

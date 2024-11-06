@@ -1,0 +1,138 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-image: url("Icons/enchanted-forest-of-glittering-spirits-1235941983097458758\ \(1\).jpeg"); /* Replace with your image URL */
+  background-size: cover; /* Adjusts the image to cover the entire background */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed;
+  font-family: Rubik, sans-serif;
+}
+
+#nav-bar {
+  /*background-image: linear-gradient(blue 40%,lightblue,white) ;
+  */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+}
+
+#link-grid a {
+  text-decoration: none;
+  color: black;
+}
+
+
+#search-bar {
+  width: 80%;
+  height: 40%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  transition: 0.3s ease all;
+}
+
+#search-bar::placeholder {
+  color: white;
+}
+
+#search-bar:focus {
+  border: 1px white solid;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.search-form button {
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#link-grid {
+  display: grid;
+  grid-template: 100% / 25% 25% 25% 25%;
+}
+
+#link-grid a {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  
+}
+#link-grid a:hover {
+  background-color: white;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+main {
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.dropdown-toggle {
+  outline: 0;
+}
+
+.btn-toggle {
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  color: var(--bs-emphasis-color);
+  background-color: transparent;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(var(--bs-emphasis-color-rgb), 0.85);
+  background-color: var(--bs-tertiary-bg);
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform 0.35s ease;
+  transform-origin: 0.5em 50%;
+}
+
+[data-bs-theme="dark"] .btn-toggle::before {
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(var(--bs-emphasis-color-rgb), 0.85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: 0.1875rem 0.5rem;
+  margin-top: 0.125rem;
+  margin-left: 1.25rem;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.scrollarea {
+  overflow-y: auto;
+}

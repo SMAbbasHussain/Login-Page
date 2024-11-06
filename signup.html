@@ -18,104 +18,7 @@
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
 
-    <style>
-      .row {
-        width: 90%;
-      }
-
-      body {
-        background-image: url("Icons/enchanted-forest-of-glittering-spirits-1235941983097458758\ \(1\).jpeg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        font-family: Rubik, sans-serif;
-      }
-
-      .blurry-background {
-        backdrop-filter: blur(10px); /* Applies blur effect */
-        -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
-        padding: 20px;
-        border-radius: 8px; /* Optional: add rounded corners */
-        border: 1px solid rgba(173, 216, 230, 0.5);
-      }
-
-      p {
-        color: white;
-        font-size: 20px;
-        font-weight: 600;
-        width: 100%;
-        text-align: left;
-      }
-
-      .custom-label {
-        color: white; /* Change to your desired color */
-        opacity: 1; /* Optional: ensures full opacity */
-      }
-
-      .custom-label:focus {
-        background-color: transparent;
-      }
-
-      input[type="text"],
-      input[type="password"],
-      input[type="tel"] {
-        background-color: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: #e0e0e0;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      input[type="text"]:focus,
-      input[type="password"]:focus,
-      input[type="tel"]:focus {
-        border-color: white;
-        outline: none;
-        outline: none;
-        box-shadow: 0 0 5px rgb(175, 93, 207), 0 0 15px rgba(255, 255, 255, 0.5);
-      }
-
-      input[type="text"]:focus + .custom-label,
-      input[type="password"]:focus + .custom-label,
-      input[type="tel"]:focus + .custom-label,
-      input[type="text"]:not(:placeholder-shown) + .custom-label,
-      input[type="password"]:not(:placeholder-shown) + .custom-label,
-      input[type="tel"]:not(:placeholder-shown) + .custom-label {
-        color: white; /* Change label color when input is focused */
-        background-color: transparent;
-      }
-
-      
-
-      .form-floating > input + .custom-label:after {
-        background: transparent !important;
-      }
-
-      .form-button {
-        background-color: transparent;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        transition: 0.3s ease-in-out;
-        padding: 10px 15px;
-      }
-
-      .form-button:hover {
-        background-color: #547cb4;
-        border: 1px solid white;
-      }
-
-      form a {
-        color: white;
-        padding: 10px;
-      }
-
-      #mobile_code {
-        height: 56px;
-        width: 100%;
-        padding-right: 12px;
-      }
-
-      #mobile_code::placeholder {
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="signup.css">
   </head>
   <body>
     <div
@@ -138,7 +41,7 @@
         </div>
 
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-md-6">
             <div class="input-group mb-3 form-floating">
               <input
                 id="fname"
@@ -156,7 +59,7 @@
             </div>
           </div>
 
-          <div class="col">
+          <div class="col-12 col-md-6">
             <div class="input-group mb-3 form-floating name">
               <input
                 id="lname"
@@ -197,6 +100,26 @@
           <div class="col">
             <div class="input-group mb-3 form-floating">
               <input
+                id="email"
+                style="background-color: transparent; color: white"
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                aria-label="Email"
+                aria-describedby="Your Email"
+                required
+                title="Enter Email"
+              />
+              <label class="custom-label">Email</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3 form-floating">
+              <input
+                id="password"
                 style="background-color: transparent; color: white"
                 type="password"
                 class="form-control"
@@ -207,6 +130,25 @@
                 title="Enter Password"
               />
               <label class="custom-label">Password</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3 form-floating">
+              <input
+                id="password2"
+                style="background-color: transparent; color: white"
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                aria-label="Password"
+                aria-describedby="Your Password"
+                required
+                title="Re-Enter Password"
+              />
+              <label class="custom-label">Re-Type Password</label>
             </div>
           </div>
         </div>
@@ -234,7 +176,7 @@
 
         <div class="row">
           <div class="col d-flex justify-content-center">
-            <input type="submit" class="btn btn-success form-button"></input>
+            <input id="signUpButton" type="submit" class="btn btn-success form-button"></input>
           </div>
         </div>
         
@@ -254,44 +196,6 @@
   ></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var input = document.querySelector("#mobile_code");
-      window.intlTelInput(input, {
-        initialCountry: "pk", // Change to your desired initial country
-        separateDialCode: true,
-        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js" // Optional: for formatting and validation
-      });
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-            
-            function validation() {
-                if (this.value === '' || this.value.match(/[^0-9]/)) {
-                    this.setCustomValidity("Please enter a valid value");
-                } else {
-                    this.setCustomValidity(""); // Clear the custom message
-                }
-            };
-
-            const firstName = document.getElementsById("fname");
-            const lastName = document.getElementById("lname");
-            const mobileInput = document.getElementById("mobile_code");
-
-            // Set a custom validity message when the input is invalid
-            mobileInput.addEventListener('input', validation());
-            firstName.addEventListener('input', validation());
-            lastName.addEventListener('input', validation());
-
-            // Handle form submission
-            const form = mobileInput.closest('form');
-            form.addEventListener('submit', function(e) {
-                if (!mobileInput.checkValidity()) {
-                    e.preventDefault(); // Prevent form submission
-                    mobileInput.reportValidity(); // Show the custom validity message
-                }
-            });
-        });
-  </script>
+  <script src="script.js"></script>
   </body>
 </html>

@@ -1,0 +1,214 @@
+.row {
+  width: 90%;
+}
+
+body {
+  background-image: url("Icons/enchanted-forest-of-glittering-spirits-1235941983097458758\ \(1\).jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Rubik, sans-serif;
+}
+
+.blurry-background {
+  backdrop-filter: blur(10px); /* Applies blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  padding: 20px;
+  border-radius: 8px; /* Optional: add rounded corners */
+  border: 1px solid rgba(173, 216, 230, 0.5);
+}
+
+p {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+}
+
+
+.custom-label {
+  color: white; /* Change to your desired color */
+  opacity: 1; /* Optional: ensures full opacity */
+}
+
+.custom-label:focus {
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="password"],
+#floatingTextarea {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #e0e0e0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+#floatingTextarea:focus,
+#category-dropdown-button:focus {
+  border-color: white;
+  outline: none;
+  outline: none;
+  box-shadow: 0 0 5px rgb(175, 93, 207), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus + .custom-label,
+input[type="password"]:focus + .custom-label,
+#floatingTextarea:focus + .custom-label,
+input[type="text"]:not(:placeholder-shown) + .custom-label,
+input[type="password"]:not(:placeholder-shown) + .custom-label,
+#floatingTextarea:not(:placeholder-shown) + .custom-label {
+  color: white;
+}
+
+label::after {
+  background-color: transparent !important;
+}
+
+.form-floating > input + .custom-label:after {
+  background: transparent !important;
+}
+
+
+.form-button {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease-in-out;
+  padding: 10px 15px;
+}
+
+.form-button:hover {
+  background-color: #547cb4;
+  border: 1px solid white;
+}
+
+form a {
+  color: white;
+  padding: 10px;
+}
+
+#categories {
+  margin-bottom: 16px;
+}
+
+#category-dropdown-button {
+  padding: 16px 12px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#category-dropdown li {
+  background-color: transparent;
+}
+
+#category-dropdown {
+  width: 100%;
+}
+
+#floatingTextarea {
+  height: 100px;
+}
+
+#productImage {
+  display: none;
+}
+
+/* Custom styling for the button */
+.custom-file-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: transparent; /* Bootstrap primary color */
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+.custom-file-button:hover {
+  border: 1px solid white; /* Darker shade for hover */
+}
+
+/* Preview image styling */
+#preview {
+  margin: 10px;
+  max-width: 100%;
+  height: auto;
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Initially hide the preview image */
+}
+
+
+#nav-bar {
+  /*background-image: linear-gradient(blue 40%,lightblue,white) ;
+  */
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  position: sticky;
+}
+
+#link-grid a {
+  text-decoration: none;
+  color: black;
+}
+
+#search-bar {
+  width: 80%;
+  height: 40%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+}
+
+#search-bar::placeholder {
+  color: white;
+  box-shadow: none;
+}
+
+#search-bar:focus {
+  border: 1px white solid;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.search-form button {
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#link-grid {
+  display: grid;
+  grid-template: 100% / 25% 25% 25% 25%;
+}
+
+#link-grid a {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  
+}
+#link-grid a:hover {
+  background-color: white;
+}
