@@ -139,34 +139,39 @@ form a {
 }
 
 #nav-bar {
-  background-image: linear-gradient(blue 40%, transparent);
-  backdrop-filter: blur(10px);
+  background-color: rgb(243, 234, 234);
 }
 
 #link-grid a {
   text-decoration: none;
   color: black;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  transition: 0.1s ease all;
 }
 
 #search-bar {
   width: 80%;
-  height: 40%;
+  height: 50%;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid black;
   padding: 10px;
   background-color: transparent;
-  color: white;
+  color: black;
   outline: none;
   transition: 0.3s ease all;
 }
 
 #search-bar::placeholder {
-  color: white;
+  color: black;
 }
 
 #search-bar:focus {
-  border: 1px white solid;
+  border: 1px black solid;
 }
+
 .search-form {
   display: flex;
   align-items: center;
@@ -180,11 +185,13 @@ form a {
 }
 
 .search-form button {
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 50%;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 100%;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 #link-grid {
@@ -192,15 +199,6 @@ form a {
   grid-template: 100% / 25% 25% 25% 25%;
 }
 
-#link-grid a {
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  align-items: center;
-  transition: 0.1s ease all;
-}
-
 #link-grid a:hover {
-  background-image: linear-gradient(rgb(255, 255, 255, 0.3) 10%, blue);
-  color: white;
+  background-color: #ccc;
 }

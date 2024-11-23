@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 body {
   min-height: 100vh;
   min-height: -webkit-fill-available;
@@ -10,8 +11,7 @@ body {
 }
 
 #nav-bar {
-  background-image: linear-gradient(blue 40%, transparent);
-  backdrop-filter: blur(10px);
+  background-color: rgb(243, 234, 234);
 }
 
 #link-grid a {
@@ -26,23 +26,24 @@ body {
 
 #search-bar {
   width: 80%;
-  height: 40%;
+  height: 50%;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid black;
   padding: 10px;
   background-color: transparent;
-  color: white;
+  color: black;
   outline: none;
   transition: 0.3s ease all;
 }
 
 #search-bar::placeholder {
-  color: white;
+  color: black;
 }
 
 #search-bar:focus {
-  border: 1px white solid;
+  border: 1px black solid;
 }
+
 .search-form {
   display: flex;
   align-items: center;
@@ -56,11 +57,13 @@ body {
 }
 
 .search-form button {
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 50%;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 100%;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
 }
 
 #link-grid {
@@ -69,8 +72,7 @@ body {
 }
 
 #link-grid a:hover {
-  background-image: linear-gradient(rgb(255, 255, 255, 0.3) 10%, blue);
-  color: white;
+  background-color: #ccc;
 }
 
 html {
@@ -95,6 +97,7 @@ main {
   color: var(--bs-emphasis-color);
   background-color: transparent;
 }
+
 .btn-toggle:hover,
 .btn-toggle:focus {
   color: rgba(var(--bs-emphasis-color-rgb), 0.85);
@@ -116,6 +119,7 @@ main {
 .btn-toggle[aria-expanded="true"] {
   color: rgba(var(--bs-emphasis-color-rgb), 0.85);
 }
+
 .btn-toggle[aria-expanded="true"]::before {
   transform: rotate(90deg);
 }
@@ -125,6 +129,7 @@ main {
   margin-top: 0.125rem;
   margin-left: 1.25rem;
 }
+
 .btn-toggle-nav a:hover,
 .btn-toggle-nav a:focus {
   background-color: var(--bs-tertiary-bg);
@@ -132,4 +137,83 @@ main {
 
 .scrollarea {
   overflow-y: auto;
+}
+
+#side-bar-md {
+  background-color: rgb(19, 18, 18); /* Light background */
+  height: 90vh; /* Full height for the sidebar */
+  padding-top: 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+#side-bar-md ul {
+  padding-left: 0;
+}
+
+#side-bar-md ul li {
+  list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#side-bar-md ul li a {
+  padding-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.list-unstyled li:hover {
+  background-color: rgb(36, 34, 34);
+}
+
+.account-info {
+  padding: 10px;
+  margin-top: auto; /* Ensures it's at the bottom of the sidebar */
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.account-info #accountName {
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  padding-top: 20px;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-item {
+  color: black;
+  background-color: transparent;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: rgb(12, 11, 11);
+}
+
+.card {
+  margin: 10px;
+  background-color: transparent;
+  backdrop-filter: blur(10px); /* Applies blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  color: white;
+  height: 340px;
+}
+
+.card p {
+  margin: 0;
 }

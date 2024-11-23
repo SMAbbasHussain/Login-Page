@@ -1,42 +1,49 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const apiURL = "https://672ddcb2fd8979715644034c.mockapi.io/products/products";
+  const productSection = document.getElementById("product-section");
 
-  function displayProducts() {
-    const productList = document.getElementById("product-list");
-    productList.innerHTML = ''; // Clear previous products
+  // Fetch products from the API
+  async function fetchProducts() {
+    try {
+      const response = await fetch(apiURL);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch products: ${response.statusText}`);
+      }
+      const products = await response.json();
+      displayProducts(products);
+    } catch (error) {
+      console.error(error);
+      alert("Error fetching products. Please try again later.");
+    }
+  }
 
-    products.forEach(product => {
-      const productDiv = document.createElement('div');
-      productDiv.style.marginBottom = '10px';
-      productDiv.style.border = '1px solid #ddd';
-      productDiv.style.padding = '10px';
+  // Display products in the grid
+  function displayProducts(products) {
+    productSection.innerHTML = ""; // Clear existing products
 
-      const productImage = document.createElement('img');
-      productImage.src = product.image;
-      productImage.style.width = '100px';
-      productImage.style.height = '100px';
-      productDiv.appendChild(productImage);
+    products.forEach((product) => {
+      const productCard = document.createElement("div");
+      productCard.className = "col-md-4 mb-4";
 
-      const productName = document.createElement('h3');
-      productName.textContent = product.name;
-      productDiv.appendChild(productName);
-
-      const productPrice = document.createElement('p');
-      productPrice.textContent = `$${product.price}`;
-      productDiv.appendChild(productPrice);
-
-      const productCategory = document.createElement('p');
-      productCategory.textContent = `Category: ${product.category}`;
-      productDiv.appendChild(productCategory);
-
-      const productDescription = document.createElement('p');
-      productDescription.textContent = product.description;
-      productDiv.appendChild(productDescription);
-
-      productList.appendChild(productDiv);
+      productCard.innerHTML = `
+        <div class="card" style="width: 15rem;">
+          <img
+            src="${product.image}"
+            class="card-img-top"
+            alt="${product.name}"
+            style="object-fit: cover; height: 180px;"
+          />
+          <div class="card-body">
+            <h5 class="card-title"><b>${product.name}</b></h5>
+            <p class="card-text"><b>Price:</b> $${product.price}</p>
+            <p class="card-text"><b>Category:</b> ${product.category}</p>
+            <p class="card-text"><b>Description:</b> ${product.description}</p>
+          </div>
+        </div>
+      `;
+      productSection.appendChild(productCard);
     });
   }
 
-  displayProducts(); // Display products when the page loads
-
-})
+  fetchProducts(); // Fetch and display products on page load
+});
