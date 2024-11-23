@@ -11,31 +11,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  const productImageInput = document.getElementById("productImage");
+  const imageUrlInput = document.getElementById("imageUrl");
   const previewImage = document.getElementById("preview");
 
-  productImageInput.addEventListener("change", function (event) {
-    const file = event.target.files[0];
+  // Listen for changes in the URL input field
+  imageUrlInput.addEventListener("input", function () {
+    const url = imageUrlInput.value.trim(); // Get the entered URL
 
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        previewImage.src = e.target.result;
-        previewImage.style.display = "inline-block";
-        previewImage.style.objectFit = "contain"
-        previewImage.style.maxWidth = "100px"
-        previewImage.style.maxHeight = "80px"
-        previewImage.style.padding = "10px"
-        previewImage.style.aspectRatio = "1:1"  // Show the image preview
-      };
-
-      reader.readAsDataURL(file); // Convert the file to a base64 string for preview
+    if (url) {
+      // Set the src of the preview image
+      previewImage.src = url;
+      previewImage.style.display = "block"; // Show the preview
+      previewImage.style.objectFit = "contain";
+      previewImage.style.maxWidth = "100px";
+      previewImage.style.maxHeight = "80px";
+      previewImage.style.padding = "10px";
+      previewImage.style.aspectRatio = "1:1";
     } else {
-      previewImage.style.display = "none"; // Hide preview if not an image
-      alert("Please upload a valid image file.");
+      // Hide the preview if no URL is entered
+      previewImage.style.display = "none";
     }
   });
+
+  // Optional: Add error handling to check if the image URL is valid
+  previewImage.onerror = function () {
+    alert("Invalid image URL. Please enter a valid URL.");
+    previewImage.style.display = "none";
+  };
 
   function validateName(nameField) {
     if (nameField.value === "") {
@@ -49,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function validatePrice(price) {
     if (price.value === "" || isNaN(price.value)) {
       price.setCustomValidity("Please enter a valid price!");
-      console.log("price");
       return false;
     }
     price.setCustomValidity("");
@@ -65,8 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function isImageUploaded(inputId) {
-    if (inputId.files.length === 0) {
-      console.log("inside");
+    if (inputId.value === "") {
       alert("Please upload a photo of your product!");
       return false;
     }
@@ -83,61 +83,63 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isProductName && isProductPrice && isProductDropdown && isProductImage && isProductImage && isDescriptionPara) {
       return true;
     }
-    console.log("asdasd");
     return false;
   }
 
-  let name = document.getElementById("product-name");
-  let price = document.getElementById("product-price");
-  let dropdownID = document.getElementById("category-dropdown-button");
-  let image = document.getElementById("productImage");
-  const preview = document.getElementById("preview");
-  let description = document.getElementById("floatingTextarea");
-
   document.getElementById("submit-button").addEventListener("click", function () {
 
-    const submitSuccess = validateInput(name, price, dropdownID, image, description);
-    if (submitSuccess == true) {
-      alert("Item added successfully");
-      name.value = "";
-      price.value = "";
-      dropdownID.innerText = "Select a Category";
-      image.value = "";
-      description.value = "";
-      preview.src = "";
-      preview.style.display = "none"
-    }
-  });
+    let nameField = document.getElementById("product-name");
+    let priceField = document.getElementById("product-price");
+    let dropdownID = document.getElementById("category-dropdown-button");
+    let image = document.getElementById("imageUrl");
+    const preview = document.getElementById("preview");
+    let descriptionField = document.getElementById("floatingTextarea");
 
-  document.getElementById("submit-button").addEventListener("click", function () {
     const name = document.getElementById("product-name").value;
     const price = document.getElementById("product-price").value;
-    const category = document.getElementById("category-dropdown-button").textContent;
+    const category = document.getElementById("category-dropdown-button").textContent.trim();
     const description = document.getElementById("floatingTextarea").value;
-    const imageFile = document.getElementById("preview").src;
+    const imageFile = document.getElementById("imageUrl").value;
+
+    const submitSuccess = validateInput(nameField, priceField, dropdownID, image, descriptionField);
+    if (submitSuccess == true) {
+      alert("Item added successfully");
+    }
 
 
-    const reader = new FileReader();
-
-    reader.onload = function () {
-      // Create a product object and store it in the array
-      const product = {
-        name: name,
-        price: price,
-        category: category,
-        image: imageFile,  // Base64 image string
-        description: description
-      };
-      let products = JSON.parse(localStorage.getItem('products')) || [];
-      console.log("hehe2");
-      console.table(products);
-      products.push(product);
-      localStorage.setItem('products', JSON.stringify(products));
-
-      // Add the product to the products array
-      products.push(product);
+    // Create the product object
+    const productData = {
+      name: name,
+      price: price,
+      category: category,
+      description: description,
+      image: imageFile, // If this is base64 or an image URL
     };
 
+    // Send data to the API
+    fetch("https://672ddcb2fd8979715644034c.mockapi.io/products/products", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to add product");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        alert("Product added successfully: " + data.id); // Display success message
+        console.log(data); // Optionally log the response
+        // Clear form fields
+        location.reload();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      });
   });
 
 });

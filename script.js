@@ -93,12 +93,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const signUpButton = document.getElementById("signUpButton");
   signUpButton.addEventListener("click", function () {
     const success = formValidator.validateForm();
+     
     if (success === true) {
+      const signupData = {
+        firstName: document.getElementById("fname").value,
+        lastName: document.getElementById("lname").value,
+        username: document.getElementById("Username").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        phoneNumber: document.getElementsByClassName("iti__selected-dial-code")[0].textContent + document.getElementById("mobile_code").value
+      };
+      fetch("https://672ddcb2fd8979715644034c.mockapi.io/products/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signupData),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to sign up");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          alert("Signup successful: " + data.message); // Success message
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+        });
+  
       window.location.href = 'index.html';
       alert("Sign Up Successful!");
     }
   });
 
 
-  
+
 });
+
+

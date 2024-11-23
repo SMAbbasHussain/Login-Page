@@ -47,7 +47,7 @@
         </form>
       </div>
       <div id="link-grid" class="col-4" id="nav-links" style="height: 100%;">
-        <a href="">Home</a>
+        <a href="welcome.html">Home</a>
         <a href="">Sales</a>
         <a href="">Your Cart</a>
         <a href="addProduct.html">Add Product</a>
@@ -109,15 +109,16 @@
         </div>
       </div>
 
-
       <div class="row">
         <div class="col">
-          <label for="productImage" class="custom-file-button">Choose Image</label>
-          <input type="file" id="productImage" accept="image/*" />
-          <img id="preview" alt="Image Preview" />
+          <div class="input-group mb-3 form-floating">
+          <input type="text" id="imageUrl" class="form-control" placeholder="Enter image URL here" />
+          <label class="custom-label">Product Photo URL</label>
+          <img id="preview" alt="Image Preview" style="display: none;" />
+          </div>
         </div>
       </div>
-
+      
 
       <div class="row">
         <div class="col">
@@ -135,7 +136,6 @@
           <input id="submit-button" type="submit" class="btn btn-success form-button"></input>
         </div>
       </div>
-
     </form>
   </div>
 
