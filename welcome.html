@@ -35,14 +35,14 @@
         </button>
         <ul class="list-unstyled">
           <h1 style="color: white; padding-left: 20px;">Categories</h1>
-          <li><a href="#">Groceries</a></li>
-          <li><a href="#">Snacks & Beverages</a></li>
-          <li><a href="#">Personal Care</a></li>
-          <li><a href="#">Household Supplies</a></li>
-          <li><a href="#">Health & Wellness</a></li>
-          <li><a href="#">Cleaning Products</a></li>
-          <li><a href="#">Baby & Kids</a></li>
-          <li><a href="#">Other</a></li>
+          <li><a class="category-link" href="#">Groceries</a></li>
+          <li><a class="category-link" href="#">Snacks & Beverages</a></li>
+          <li><a class="category-link" href="#">Personal Care</a></li>
+          <li><a class="category-link" href="#">Household Supplies</a></li>
+          <li><a class="category-link" href="#">Health & Wellness</a></li>
+          <li><a class="category-link" href="#">Cleaning Products</a></li>
+          <li><a class="category-link" href="#">Baby & Kids</a></li>
+          <li><a class="category-link" href="#">Other</a></li>
         </ul>
 
         <div class="account-info" style="
@@ -92,7 +92,7 @@
 
         </button>
         <ul class="dropdown-menu" id="dropdown-menus" aria-labelledby="navDropdownButton">
-          <li ><a class="dropdown-item" id="dropdown-items" href="welcome.html">Home</a></li>
+          <li><a class="dropdown-item" id="dropdown-items" href="welcome.html">Home</a></li>
           <li><a class="dropdown-item" id="dropdown-items" href="">Sales</a></li>
           <li><a class="dropdown-item" id="dropdown-items" href="addToCart.html">Your Cart</a></li>
           <li><a class="dropdown-item" id="dropdown-items" href="addProduct.html">Add Product</a></li>
@@ -109,14 +109,14 @@
         <div id="sidebarMenu" class="d-none d-lg-block">
           <ul class="list-unstyled">
             <h1 style="color: white; padding: 10px">Categories</h1>
-            <li><a href="#">Groceries</a></li>
-            <li><a href="#">Snacks & Beverages</a></li>
-            <li><a href="#">Personal Care</a></li>
-            <li><a href="#">Household Supplies</a></li>
-            <li><a href="#">Health & Wellness</a></li>
-            <li><a href="#">Cleaning Products</a></li>
-            <li><a href="#">Baby & Kids</a></li>
-            <li><a href="#">Other</a></li>
+            <li><a class="category-link" href="#">Groceries</a></li>
+            <li><a class="category-link" href="#">Snacks & Beverages</a></li>
+            <li><a class="category-link" href="#">Personal Care</a></li>
+            <li><a class="category-link" href="#">Household Supplies</a></li>
+            <li><a class="category-link" href="#">Health & Wellness</a></li>
+            <li><a class="category-link" href="#">Cleaning Products</a></li>
+            <li><a class="category-link" href="#">Baby & Kids</a></li>
+            <li><a class="category-link" href="#">Other</a></li>
           </ul>
           <div class="account-info" style="
             position: absolute;
@@ -124,21 +124,19 @@
             padding: 10px;
             text-align: center;
           ">
-          <img style="width: 45px; display: inline-block;" src="Icons/user-icon.png" alt="" />
-          <span id="accountName" class="d-block mb-2">Account</span>
-          <!-- Example name -->
-          <div id="acc-dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-              data-bs-toggle="dropdown" aria-expanded="false"></button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li style="padding: 0;"><a class="dropdown-item" href="#">Settings</a></li>
-              <li style="padding: 0;"><a class="dropdown-item" href="index.html">Logout</a></li>
-            </ul>
+            <img style="width: 45px; display: inline-block;" src="Icons/user-icon.png" alt="" />
+            <span id="accountName" class="d-block mb-2">Account</span>
+            <!-- Example name -->
+            <div id="acc-dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false"></button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li style="padding: 0;"><a class="dropdown-item" href="#">Settings</a></li>
+                <li style="padding: 0;"><a class="dropdown-item" href="index.html">Logout</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-        </div>
-
-        <!-- Sidebar for Mobile/Tablet View (Hidden by default) -->
       </div>
 
       <div id="main-content" class="col-12 col-lg-9 " style="padding: 0;">
@@ -151,6 +149,7 @@
   </div>
   </div>
   </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

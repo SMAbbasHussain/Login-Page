@@ -1,10 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
   const apiURL = "https://672ddcb2fd8979715644034c.mockapi.io/products/products";
   const productSection = document.getElementById("product-section");
-  const sidebarLinks = document.querySelectorAll("#sidebarMenu ul li a"); // Select sidebar category links
+  const sidebarLinks = document.querySelectorAll(".category-link"); // Select sidebar category links
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let allProducts = []; // Store all products for filtering
+  const sidebarToggle = document.getElementById("sidebarToggle");
+  const sidebarMobile = document.getElementById("sidebarMobile");
+  const overlay = document.getElementById("overlay");
+  const back = document.getElementById("backButton");
+  // Toggle the sidebar visibility when the button is clicked
+  sidebarToggle.addEventListener("click", function () {
+    sidebarMobile.classList.toggle("show");  // Toggle sidebar visibility
+    overlay.classList.toggle("active"); // Toggle overlay visibility
+  });
 
+  back.addEventListener("click", function () {
+    sidebarMobile.classList.remove("show");  // Hide the sidebar
+    overlay.classList.remove("active"); // Hide the overlay
+  });
+
+  // Close the sidebar when the overlay is clicked
+  overlay.addEventListener("click", function () {
+    sidebarMobile.classList.remove("show");  // Hide the sidebar
+    overlay.classList.remove("active"); // Hide the overlay
+  });
   // Fetch products from the API
   async function fetchProducts() {
     try {
