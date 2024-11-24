@@ -12,6 +12,9 @@ body {
 
 #nav-bar {
   background-color: rgb(243, 234, 234);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 #link-grid a {
@@ -68,11 +71,18 @@ body {
 
 #link-grid {
   display: grid;
-  grid-template: 100% / 25% 25% 25% 25%;
+  grid-template: 100% / 20% 20% 25% 35%;
 }
 
 #link-grid a:hover {
   background-color: #ccc;
+}
+
+#sidebarToggle {
+  width: 45px;
+  background-color: white;
+  padding: 0;
+  margin-left: 10px;
 }
 
 html {
@@ -139,28 +149,83 @@ main {
   overflow-y: auto;
 }
 
-#side-bar-md {
+#sidebarMenu {
   background-color: rgb(19, 18, 18); /* Light background */
   height: 90vh; /* Full height for the sidebar */
   padding-top: 20px;
   border-radius: 0 10px 10px 0;
+  position: fixed;
+  left: 0;
 }
 
-#side-bar-md ul {
+#sidebarMenu ul {
   padding-left: 0;
 }
 
-#side-bar-md ul li {
+#sidebarMenu ul li {
+  list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+#sidebarMenu ul li a {
+  padding-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+#sidebarMobile {
+  position: fixed; /* Makes the sidebar stay in one position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 70%; /* Adjust the width as needed */
+  height: 100%; /* Full height */
+  color: white;
+  z-index: 1050; /* Ensure it's above other content */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Optional shadow for better visibility */
+  display: none; /* Initially hidden */
+  background-color: rgb(19, 18, 18);
+  padding-top: 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+#sidebarMobile ul {
+  padding-left: 0;
+}
+
+#sidebarMobile ul li {
   list-style: none;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-#side-bar-md ul li a {
+#sidebarMobile ul li a {
   padding-left: 20px;
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+#sidebarMobile.show {
+  display: block; /* Show when toggled */
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  z-index: 1049; /* Just below the sidebar */
+  display: none; /* Initially hidden */
+}
+
+#overlay.active {
+  display: block; /* Show overlay when sidebar is open */
 }
 
 .list-unstyled li:hover {
@@ -194,6 +259,8 @@ main {
 .dropdown-item {
   color: black;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
 }
 
 .dropdown-menu a {
@@ -201,6 +268,24 @@ main {
 }
 
 .dropdown-item:hover {
+  cursor: pointer;
+  background-color: rgb(12, 11, 11);
+}
+
+#dropdown-menus {
+  background-color: white;
+}
+
+#dropdown-items {
+  color: white;
+}
+
+#dropdown-menus a {
+  padding: 10px;
+  color: black;
+}
+
+#dropdown-items:hover {
   cursor: pointer;
   background-color: rgb(12, 11, 11);
 }
@@ -216,4 +301,24 @@ main {
 
 .card p {
   margin: 0;
+}
+
+#add-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(173, 216, 230, 0.5);
+}
+
+#add-btn:hover {
+  background-color: #547cb4;
+  border: 1px solid white;
+}
+
+@media (max-width: 990px) {
+  #main-content {
+    margin-left: 20px;
+  }
 }

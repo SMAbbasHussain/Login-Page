@@ -1,0 +1,149 @@
+/* stylelint-disable no-descending-specificity */
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background-image: url("Icons/enchanted-forest-of-glittering-spirits-1235941983097458758\ \(1\).jpeg"); /* Replace with your image URL */
+  background-size: cover; /* Adjusts the image to cover the entire background */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed;
+  font-family: Rubik, sans-serif;
+}
+
+#nav-bar {
+  background-color: rgb(243, 234, 234);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#link-grid a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  transition: 0.1s ease all;
+}
+
+#search-bar {
+  width: 80%;
+  height: 50%;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: transparent;
+  color: black;
+  outline: none;
+  transition: 0.3s ease all;
+}
+
+#search-bar::placeholder {
+  color: black;
+}
+
+#search-bar:focus {
+  border: 1px black solid;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.search-form button {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+#link-grid {
+  display: grid;
+  grid-template: 100% / 20% 20% 25% 35%;
+}
+
+#link-grid a:hover {
+  background-color: #ccc;
+}
+
+.dropdown-menu {
+  background-color: black;
+}
+
+.dropdown-item {
+  color: black;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+  background-color: rgb(12, 11, 11);
+}
+
+#dropdown-menus {
+  background-color: white;
+}
+
+#dropdown-items {
+  color: white;
+}
+
+#dropdown-menus a {
+  padding: 10px;
+  color: black;
+}
+
+#dropdown-items:hover {
+  cursor: pointer;
+  background-color: rgb(12, 11, 11);
+}
+
+.container {
+  backdrop-filter: blur(10px); /* Applies blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+  padding: 20px;
+  border-radius: 8px; /* Optional: add rounded corners */
+  border: 1px solid rgba(173, 216, 230, 0.5);
+  margin: 5% auto;
+  color: white;
+  font-family: Rubik, sans-serif;
+}
+
+.itemDetail {
+  display: grid;
+  grid-template: 100% / 30% 20% 30%;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.card-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(173, 216, 230, 0.5);
+}
+
+.card-btn:hover {
+  background-color: #547cb4;
+  border: 1px solid white;
+}

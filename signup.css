@@ -48,7 +48,6 @@ input[type="password"]:focus,
 input[type="tel"]:focus {
   border-color: white;
   outline: none;
-  outline: none;
   box-shadow: 0 0 5px rgb(175, 93, 207), 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
@@ -62,9 +61,7 @@ input[type="tel"]:not(:placeholder-shown) + .custom-label {
   background-color: transparent;
 }
 
-
-
-.form-floating > input + .custom-label:after {
+.form-floating > input + .custom-label::after {
   background: transparent !important;
 }
 
