@@ -296,7 +296,7 @@ main {
   backdrop-filter: blur(10px); /* Applies blur effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
   color: white;
-  height: 340px;
+  height: 53vh;
 }
 
 .card p {
@@ -317,8 +317,20 @@ main {
   border: 1px solid white;
 }
 
+#main-content {
+  display: flex;
+  flex-grow: 1;
+}
+
 @media (max-width: 990px) {
   #main-content {
     margin-left: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  #product-section {
+    display: flex;
+    justify-content: center;
   }
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tailwind CSS Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="#" class="text-white text-xl font-bold">My Website</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="text-white px-4 py-2 hover:bg-blue-500 rounded">Home</a>
+                <a href="#about" class="text-white px-4 py-2 hover:bg-blue-500 rounded">About</a>
+                <a href="#contact" class="text-white px-4 py-2 hover:bg-blue-500 rounded">Contact</a>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden bg-blue-600 p-4">
+            <a href="#" class="block text-white py-2">Home</a>
+            <a href="#about" class="block text-white py-2">About</a>
+            <a href="#contact" class="block text-white py-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center h-screen" style="background-image: url('https://via.placeholder.com/1920x1080');">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
+            <div class="text-center text-white px-4 md:px-12">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">Welcome to Our Website</h1>
+                <p class="text-lg md:text-xl mb-8">We create amazing experiences for users. Join us today!</p>
+                <a href="#contact" class="bg-blue-600 text-white px-6 py-3 text-lg font-semibold rounded hover:bg-blue-500 transition">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">About Us</h2>
+            <p class="text-lg text-gray-700">We are a team of passionate individuals working together to create top-notch digital experiences. Our expertise spans design, development, and marketing.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-200">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Contact Us</h2>
+            <p class="text-lg text-gray-700 mb-8">We would love to hear from you. Reach out to us for any inquiries or questions!</p>
+            <a href="mailto:contact@mywebsite.com" class="bg-blue-600 text-white px-6 py-3 text-lg font-semibold rounded hover:bg-blue-500 transition">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 My Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+</body>
+</html>
